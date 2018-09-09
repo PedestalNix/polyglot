@@ -1,0 +1,7 @@
+(defun has-sum-p (numbers target &optional (count 2))
+  (if (= count 0)
+      (= target 0)
+      (do ((i 0 (1+ i)))
+          ((or (> count (- (length numbers) i))
+               (has-sum-p (last numbers (- (length numbers) (+ i 1))) (- target (nth i numbers)) (- count 1)))
+           (not (> count (- (length numbers) i)))))))
